@@ -1,0 +1,55 @@
+<main class="app-shell">
+  @if (!isStarted()) {
+    <section class="card intro-card">
+      <p class="eyebrow">Canal GianTV</p>
+      <h1>Adivina la miniatura</h1>
+      <img src="/images/logo og.png" alt="Logo de la app" class="logo-badge" />
+      <p class="description">
+        Adiviná el título a partir de su miniatura.
+      </p>
+      <button type="button" class="primary-button" (click)="startGame()">Empezar</button>
+    </section>
+  } @else {
+    <section class="card trivia-card">
+      <div class="header-row">
+        <div>
+          <p class="eyebrow">Ronda actual</p>
+          <h2>¿Cuál es el título?</h2>
+        </div>
+        <div class="score-pill">
+          <span>✅ {{ score().correct }}</span>
+          <span>❌ {{ score().incorrect }}</span>
+        </div>
+      </div>
+
+      @if (currentItem()) {
+        <img
+          [src]="currentItem()?.image || '/images/miniaturas/miniatura-2.svg'"
+          [alt]="currentItem()?.title"
+          class="thumbnail"
+          [style.filter]="'blur(' + blurLevel() + 'px)'"
+        />
+
+        <form class="answer-form" (ngSubmit)="submitAnswer()">
+          <input
+            type="text"
+            [(ngModel)]="answer"
+            name="answer"
+            placeholder="Escribí el título"
+            autocomplete="off"
+          />
+          <button type="submit" class="primary-button">Confirmar</button>
+        </form>
+
+        @if (resultMessage()) {
+          <p class="result" [class.correct]="isCorrect()" [class.error]="!isCorrect()">
+            {{ resultMessage() }}
+          </p>
+        }
+
+        <button type="button" class="secondary-button" (click)="nextQuestion()">Siguiente</button>
+      }
+
+    </section>
+  }
+</main>

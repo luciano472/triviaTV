@@ -1,0 +1,171 @@
+/* You can add global styles to this file, and also import other style files */
+:host {
+  display: block;
+  min-height: 100vh;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  color: #f3f4f6;
+  background: linear-gradient(135deg, #020617, #111827 45%, #1f2937);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  width: min(100%, 720px);
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 20px 45px rgba(2, 6, 23, 0.45);
+}
+
+.intro-card {
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #818cf8;
+}
+
+h1, h2 {
+  margin: 0 0 12px;
+}
+
+.description {
+  margin: 0 0 24px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+.logo-badge {
+  width: 180px;
+  height: auto;
+  margin: 10px auto 18px;
+  display: block;
+  border-radius: 18px;
+}
+
+.primary-button,
+.secondary-button {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.25);
+}
+
+.secondary-button {
+  background: #334155;
+  color: #f8fafc;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.score-pill {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+  color: #cbd5e1;
+}
+
+.thumbnail {
+  width: 100%;
+  max-width: 560px;
+  display: block;
+  margin: 0 auto 20px;
+  border-radius: 16px;
+  object-fit: cover;
+  background: #1f2937;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.preview-image {
+  max-width: 320px;
+  margin-bottom: 24px;
+  border: 2px solid rgba(148, 163, 184, 0.2);
+}
+
+.answer-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+input {
+  flex: 1;
+  border: 1px solid #475569;
+  border-radius: 999px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+input::placeholder {
+  color: #94a3b8;
+}
+
+.status,
+.result {
+  margin: 0 0 16px;
+  font-weight: 600;
+}
+
+.result.correct {
+  color: #4ade80;
+}
+
+.result.error {
+  color: #f87171;
+}
+
+.channel-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #818cf8;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 24px;
+  }
+
+  .header-row,
+  .answer-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+  }
+}
